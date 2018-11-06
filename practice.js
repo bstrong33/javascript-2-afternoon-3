@@ -27,6 +27,9 @@
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
 
+let first = (arr, callback) => {
+  callback(arr[0]);
+}
 // Code Here 
 
 // Do not edit the code below.
@@ -47,6 +50,9 @@ first(names, function(firstName){
   Then invoke the callback, passing in the last element in the array as the argument.
 */
 
+let last = (arr, callback) => {
+  callback(arr[arr.length-1]);
+}
 //Code Here
 
 // Do not edit the code below.
@@ -65,6 +71,9 @@ last(names, function(lastName){
   Invoke the callback, passing in the product of the two numbers multiplied as the argument. 
 */
 
+let multiply = (num1, num2, callback) => {
+  callback(num1 * num2);
+}
 //Code Here
 
 // Do not edit the code below.
@@ -84,6 +93,11 @@ multiply(4, 3, function(answer){
   If the name does not exist, invoke the callback with false as the argument.
 */
 
+let contains = (arr, name, callback) => {
+  if (arr.indexOf(name) != -1) {
+    callback(true);
+  } else {callback(false);}
+}
 //Code Here 
 
 // Do not edit the code below.
@@ -105,6 +119,12 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
+let uniq = (arr, callback) => {
+  newArr = arr.filter(function(val, i, arr){
+    return arr.indexOf(val) == i;
+  })
+  callback(newArr);
+}
 //Code Here
 
 // Do not edit the code below.
@@ -122,6 +142,11 @@ uniq(names, function(uniqArr){
   For each name in the array, invoke the callback and pass in the name and the name's index as arguments.
 */
 
+let each = (arr, callback) => {
+  for (let i = 0; i < arr.length; i++){
+    callback(arr[i], i);
+  }
+}
 //Code Here 
 
 // Do not edit the code below.
@@ -139,6 +164,14 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
+let getUserById = (arr, id, callback) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].id == id){
+      console.log(i);
+    callback(arr[i]);
+    }
+  }
+}
 // Code here
 
 // Do not edit the code below.
